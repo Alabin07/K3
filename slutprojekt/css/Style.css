@@ -134,29 +134,31 @@ footer {
 #navbar {
     list-style: none;
     display: flex;
+    justify-content: space-evenly; /* Ensures equal spacing */
+    align-items: center; /* Centers items vertically */
     margin: 0;
     padding: 0;
-    flex: 1;
-    width: 100%;
-    font-size: 20px;
+    background-color: #272625;
 }
 
 #navbar li {
-    flex: 1;
+    flex: 1; 
+    text-align: center; /* Centers text inside the navbar */
 }
 
 #navbar li a {
+    display: flex; /* Make links fill their parent */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
     padding: 1em;
-    background-color: #272625;
     text-decoration: none;
-    border: 1px solid black;
-    display: inline-block;
-    text-align: center;
     color: #e7e7e7;
-    position: relative;
-    width: 100%;
-
+    border: 1px solid black;
+    width: 100%; /* Ensure full width inside li */
+    height: 100%; /* Make sure it takes full height */
 }
+
+
 
 #navbar li a:hover {
     color: #0087ca;
