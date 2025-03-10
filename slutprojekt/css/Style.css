@@ -14,8 +14,8 @@ html, body {
 }
 
 body {
-    background-color: #1e1e1e;
-    color: whitesmoke;
+    background-color: whitesmoke;
+    color: #333;
     font-family: jetBrainsMono;
     padding: 0;
     margin: 0;  
@@ -23,7 +23,7 @@ body {
     flex-direction: column;
 }
 h1, h2, h3 {
-    color: red;
+    color: #333;
 }
 
 
@@ -187,6 +187,17 @@ footer {
     color: #0087ca !important;
 }
 
+.nav-html {
+    background-color: #ffa500 !important;
+}
+
+.nav-css {
+    background-color: #0000ff !important;
+}
+
+.nav-js {
+    background-color: #ffde21 !important;
+}
 
 /* Products */
 
