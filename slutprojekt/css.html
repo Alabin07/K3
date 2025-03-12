@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS Guide</title>
     <link rel="stylesheet" href="css/Style.css">
     <script defer src="js/app.js"></script>
 </head>
@@ -16,5 +16,135 @@
             <li><a href="js.html">JS</a></li>
         </ul>
     </header>
+    
+    <!-- Introduktion till CSS -->
+    <section class="hidden">
+        <h1>CSS</h1>
+        <p>CSS (Cascading Style Sheets) används för att styla och layouta HTML-innehåll. Med CSS kan du bestämma färger, typsnitt, marginaler, bakgrunder och mycket mer, vilket gör din webbsida visuellt attraktiv.</p>
+    </section>
+    
+    <!-- Grundläggande Syntax -->
+    <section class="hidden">
+        <h1>Grundläggande Syntax</h1>
+        <p>En CSS-regel består av en selektor och ett deklarationsblock. Deklarationsblocket innehåller ett eller flera par med egenskaper och värden, avslutade med semikolon.</p>
+        <pre>
+            <code>
+selector {
+    egenskap: värde;
+}
+            </code>
+        </pre>
+        <p>Exempel:</p>
+        <pre>
+            <code>
+h1 {
+    color: blue;
+    font-size: 24px;
+}
+            </code>
+        </pre>
+    </section>
+    
+    <!-- Olika sätt att lägga till CSS -->
+    <section class="hidden">
+        <h1>Olika sätt att lägga till CSS</h1>
+        <p>Det finns tre huvudsakliga metoder för att använda CSS i en webbsida:</p>
+        <ul>
+            <li><strong>Extern CSS:</strong> Länka till en separat CSS-fil med &lt;link&gt;-taggen.</li>
+            <li><strong>Intern CSS:</strong> Placera CSS-koden inuti ett &lt;style&gt;-element i &lt;head&gt;-sektionen.</li>
+            <li><strong>Inline CSS:</strong> Använd style-attributet direkt på ett HTML-element.</li>
+        </ul>
+        <p>Exempel på intern CSS:</p>
+        <pre>
+            <code>
+&lt;style&gt;
+  p {
+      color: green;
+  }
+&lt;/style&gt;
+            </code>
+        </pre>
+    </section>
+    
+    <!-- CSS Selektorer -->
+    <section class="hidden">
+        <h1>CSS Selektorer</h1>
+        <p>Selektorer används för att välja de HTML-element du vill styla. Några vanliga selektorer är:</p>
+        <ul>
+            <li><strong>Elementselektor:</strong> Väljer alla element av en viss typ. Exempel: <code>p</code></li>
+            <li><strong>Klassselektor:</strong> Väljer element med en specifik klass. Exempel: <code>.exempel</code></li>
+            <li><strong>ID-selektor:</strong> Väljer element med ett specifikt ID. Exempel: <code>#huvud</code></li>
+        </ul>
+        <p>Exempel:</p>
+        <pre>
+            <code>
+.important {
+    font-weight: bold;
+}
+#header {
+    background-color: lightgrey;
+}
+            </code>
+        </pre>
+    </section>
+    
+    <!-- CSS Box Model -->
+    <section class="hidden">
+        <h1>CSS Box Model</h1>
+        <p>Boxmodellen beskriver hur element på en webbsida är uppbyggda. Den består av:</p>
+        <ul>
+            <li>Content (innehåll)</li>
+            <li>Padding (utfyllnad)</li>
+            <li>Border (ram)</li>
+            <li>Margin (marginal)</li>
+        </ul>
+        <p>Exempel:</p>
+        <pre>
+            <code>
+div {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+            </code>
+        </pre>
+    </section>
+    
+    <!-- Kommentarer i CSS -->
+    <section class="hidden">
+        <h1>Kommentarer i CSS</h1>
+        <p>Kommentarer kan användas för att förklara koden och ignoreras av webbläsaren.</p>
+        <pre>
+            <code>
+/* Detta är en kommentar i CSS */
+p {
+    color: red;
+}
+            </code>
+        </pre>
+    </section>
+    
+    <footer>
+        <ul id="bottom">
+            <li class="contact">
+                <p>Contact Us</p>
+                <p class="footer-text">contact@carne.com</p>
+            </li>
+            <li class="contact" id="socials-footer">
+                 <p>Socials</p>
+                 <div id="socials-icons">
+                    <img src="img/instagram.svg" alt="" class="socials-svg">
+                    <img src="img/linkdin.svg" alt="" class="socials-svg">
+                    <img src="img/tumblr.svg" alt="" class="socials-svg">
+                 </div>
+            </li>
+            <li class="contact">
+                <p>Disclaimer</p>
+                <p class="footer-text">
+                    &copy; This page is available under the Creative Commons Attribution-ShareAlike License Terms of Use Privacy Policy
+                </p>
+            </li>
+        </ul>
+    </footer>
 </body>
 </html>

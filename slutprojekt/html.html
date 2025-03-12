@@ -18,29 +18,146 @@
         </ul>
     </header>
 
+    <!-- Introduktion till HTML -->
     <section class="hidden">
         <h1>HTML</h1>
-        <p>HTML är grundstrukturen för webbsidor... bla bla bla </p>
+        <p>HTML är grundstrukturen för webbsidor. Det är ett märkspråk som används för att beskriva innehållet och strukturen på en webbsida.</p>
     </section>
 
+    <!-- Standardmall för en HTML-sida -->
     <section class="hidden">
         <h1>Start på HTML är alltid:</h1>
         <pre>
             <code>
-                &lt;!DOCTYPE html&gt;
-                &lt;html lang="en"&gt;
-                &lt;head&gt;
-                    &lt;meta charset="UTF-8"&gt;
-                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                    &lt;title&gt;Document&lt;/title&gt;
-                &lt;/head&gt;
-                &lt;body&gt;
-                
-                &lt;/body&gt;
-                &lt;/html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
             </code>
         </pre>
-        
+    </section>
+
+    <!-- Vad är HTML? -->
+    <section class="hidden">
+        <h1>Vad är HTML?</h1>
+        <p>HTML (HyperText Markup Language) är ett märkspråk som används för att skapa strukturen på webbsidor. Med HTML kan du definiera rubriker, textavsnitt, länkar, bilder, listor, tabeller, formulär och mycket mer.</p>
+    </section>
+
+    <!-- Grundläggande HTML-element -->
+    <section class="hidden">
+        <h1>Grundläggande HTML-element</h1>
+        <p>Nedan följer några vanliga HTML-element:</p>
+        <ul>
+            <li>&lt;h1&gt; till &lt;h6&gt;: Rubriker</li>
+            <li>&lt;p&gt;: Paragrafer</li>
+            <li>&lt;a&gt;: Länkar</li>
+            <li>&lt;img&gt;: Bilder</li>
+            <li>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;: Listor</li>
+            <li>&lt;table&gt;, &lt;tr&gt;, &lt;td&gt;: Tabeller</li>
+            <li>&lt;form&gt;, &lt;input&gt;: Formulär</li>
+        </ul>
+    </section>
+
+    <!-- Rubriker och Paragrafer -->
+    <section class="hidden">
+        <h1>Rubriker och Paragrafer</h1>
+        <p>Rubriker används för att skapa en hierarki i innehållet och paragrafer används för att strukturera text.</p>
+        <pre>
+            <code>
+&lt;h1&gt;Detta är en rubrik&lt;/h1&gt;
+&lt;p&gt;Detta är en paragraf med lite text.&lt;/p&gt;
+            </code>
+        </pre>
+    </section>
+
+    <!-- Länkar -->
+    <section class="hidden">
+        <h1>Länkar</h1>
+        <p>Skapa en länk med &lt;a&gt;-taggen:</p>
+        <pre>
+            <code>
+&lt;a href="https://www.example.com"&gt;Besök Example.com&lt;/a&gt;
+            </code>
+        </pre>
+    </section>
+
+    <!-- Bilder -->
+    <section class="hidden">
+        <h1>Bilder</h1>
+        <p>Använd &lt;img&gt;-taggen för att visa bilder. Glöm inte att ange en alt-text för tillgänglighet:</p>
+        <pre>
+            <code>
+&lt;img src="bild.jpg" alt="Beskrivning av bilden"&gt;
+            </code>
+        </pre>
+    </section>
+
+    <!-- Listor -->
+    <section class="hidden">
+        <h1>Listor</h1>
+        <p>Oordnade listor skapas med &lt;ul&gt; och ordnade listor med &lt;ol&gt;.</p>
+        <p>Exempel på oordnad lista:</p>
+        <pre>
+            <code>
+&lt;ul&gt;
+  &lt;li&gt;Första punkten&lt;/li&gt;
+  &lt;li&gt;Andra punkten&lt;/li&gt;
+  &lt;li&gt;Tredje punkten&lt;/li&gt;
+&lt;/ul&gt;
+            </code>
+        </pre>
+        <p>Exempel på ordnad lista:</p>
+        <pre>
+            <code>
+&lt;ol&gt;
+  &lt;li&gt;Första punkten&lt;/li&gt;
+  &lt;li&gt;Andra punkten&lt;/li&gt;
+  &lt;li&gt;Tredje punkten&lt;/li&gt;
+&lt;/ol&gt;
+            </code>
+        </pre>
+    </section>
+
+    <!-- Tabeller -->
+    <section class="hidden">
+        <h1>Tabeller</h1>
+        <p>Tabeller används för att visa data i rader och kolumner.</p>
+        <pre>
+            <code>
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Rubrik 1&lt;/th&gt;
+    &lt;th&gt;Rubrik 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Data 1&lt;/td&gt;
+    &lt;td&gt;Data 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+            </code>
+        </pre>
+    </section>
+
+    <!-- Formulär -->
+    <section class="hidden">
+        <h1>Formulär</h1>
+        <p>Skapa formulär med &lt;form&gt;-taggen för att samla in användardata:</p>
+        <pre>
+            <code>
+&lt;form action="submit.html" method="post"&gt;
+  &lt;label for="name"&gt;Namn:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+  &lt;input type="submit" value="Skicka"&gt;
+&lt;/form&gt;
+            </code>
+        </pre>
     </section>
 
     <footer>
@@ -50,17 +167,18 @@
                 <p class="footer-text">contact@carne.com</p>
             </li>
             <li class="contact" id="socials-footer">
-                 <p>Socials</p>
-                 <div id="socials-icons">
-                    <img src="img/instagram.svg" alt=""  class="socials-svg">
-                    <img src="img/linkdin.svg" alt=""  class="socials-svg">
-                    <img src="img/tumblr.svg" alt=""  class="socials-svg">
-                    
+                <p>Socials</p>
+                <div id="socials-icons">
+                    <img src="img/instagram.svg" alt="" class="socials-svg">
+                    <img src="img/linkdin.svg" alt="" class="socials-svg">
+                    <img src="img/tumblr.svg" alt="" class="socials-svg">
                 </div>
             </li>
             <li class="contact">
                 <p>Disclaimer</p>
-                <p class="footer-text"> &copy; This page is available under the Creative Commons Attribution-ShareAlike License Terms of Use Privacy Policy </p>
+                <p class="footer-text">
+                    &copy; This page is available under the Creative Commons Attribution-ShareAlike License Terms of Use Privacy Policy
+                </p>
             </li>
         </ul>
     </footer>
