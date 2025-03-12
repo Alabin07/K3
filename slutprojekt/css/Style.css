@@ -27,7 +27,7 @@ h1, h2, h3 {
 }
 
 
-/* scrol effect */
+/* scroll effect */
 section {
     display: grid;
     place-items: center;
@@ -144,6 +144,7 @@ footer {
 #navbar li {
     flex: 1; 
     text-align: center; /* Centers text inside the navbar */
+    position: relative;
 }
 
 #navbar li a {
@@ -152,7 +153,7 @@ footer {
     align-items: center; /* Center text vertically */
     padding: 1em;
     text-decoration: none;
-    color: #e7e7e7;
+    color: #000000;
     border: 1px solid black;
     width: 100%; /* Ensure full width inside li */
     height: 100%; /* Make sure it takes full height */
@@ -193,6 +194,7 @@ footer {
 
 .nav-css {
     background-color: #0000ff !important;
+    color: #ffffff !important;
 }
 
 .nav-js {
@@ -242,4 +244,19 @@ form {
     background-repeat: no-repeat;
     border: gray solid 1px;
     background-position: center;
+}
+
+/* Code snippet */
+
+pre {
+    background-color: #ececec;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: larger;
+    padding: 20px;
+}
+pre code {
+    display: block;
+    white-space: pre-wrap;
+
 }

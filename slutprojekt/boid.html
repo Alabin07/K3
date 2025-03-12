@@ -2,7 +2,7 @@
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
-    <title>Boids Simulation med p5.js & Kontroller</title>
+    <title>Boids Simulation</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
   </head>
   <body>
@@ -59,13 +59,13 @@
         restartButton.mousePressed(restartSimulation);
         
         // Slider för antal Boids (10–300)
-        createP("Antal Boids (10–300)").parent(controlPanel);
-        numBoidsSlider = createSlider(10, 300, 150, 1);
+        createP("Antal Boids (1–300)").parent(controlPanel);
+        numBoidsSlider = createSlider(1, 300, 150, 1);
         numBoidsSlider.parent(controlPanel);
         
         // Slider för antal Eagles (1–10)
-        createP("Antal Eagles (1–10)").parent(controlPanel);
-        numEaglesSlider = createSlider(1, 10, 2, 1);
+        createP("Antal Eagles (0–10)").parent(controlPanel);
+        numEaglesSlider = createSlider(0, 10, 2, 1);
         numEaglesSlider.parent(controlPanel);
         
         // Övriga parametrar
