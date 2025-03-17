@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Guide</title>
     <link rel="stylesheet" href="css/Style.css">
     <script defer src="js/app.js"></script>
 </head>
@@ -17,25 +17,118 @@
         </ul>
     </header>
 
+    <!-- Introduktion till JavaScript -->
+    <section>
+        <h1>JavaScript</h1>
+        <p>JavaScript är ett mångsidigt och kraftfullt programmeringsspråk som används för att skapa interaktivitet och dynamik på webbsidor. Tillsammans med HTML och CSS utgör det en av hörnstenarna i webbutveckling.</p>
+    </section>
+
+    <!-- Variabler och datatyper -->
+    <section>
+        <h1>Variabler och Datatyper</h1>
+        <p>I JavaScript används variabler för att lagra data. Du kan deklarera en variabel med <code>var</code>, <code>let</code> eller <code>const</code>. Vanliga datatyper inkluderar:</p>
+        <ul>
+            <li><code>Number</code>: Numeriska värden</li>
+            <li><code>String</code>: Textsträngar</li>
+            <li><code>Boolean</code>: <code>true</code> eller <code>false</code></li>
+            <li><code>Object</code>: Samlingar av nyckel-värde-par</li>
+            <li><code>Array</code>: Listor av värden</li>
+        </ul>
+        <p>Exempel på deklaration och tilldelning:</p>
+        <pre>
+            <code>
+let tal = 5;
+const namn = "Anna";
+var ärAktiv = true;
+            </code>
+        </pre>
+    </section>
+
+    <!-- Funktioner -->
+    <section>
+        <h1>Funktioner</h1>
+        <p>Funktioner är block av kod som kan återanvändas. De definieras med <code>function</code>-nyckelordet:</p>
+        <pre>
+            <code>
+function hälsa() {
+    console.log("Hej världen!");
+}
+            </code>
+        </pre>
+        <p>Du kan också skapa anonyma funktioner och peka dem till variabler:</p>
+        <pre>
+            <code>
+const kvadrat = function(x) {
+    return x * x;
+};
+            </code>
+        </pre>
+    </section>
+
+    <!-- Kontrollstrukturer -->
+    <section>
+        <h1>Kontrollstrukturer</h1>
+        <p>JavaScript stöder vanliga kontrollstrukturer som <code>if</code>-satser och loopar:</p>
+        <pre>
+            <code>
+if (tal > 10) {
+    console.log("Talet är större än 10");
+} else {
+    console.log("Talet är 10 eller mindre");
+}
+
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+            </code>
+        </pre>
+    </section>
+
+    <!-- Händelsehantering -->
+    <section>
+        <h1>Händelsehantering</h1>
+        <p>JavaScript används ofta för att hantera händelser på webbsidor, såsom klick eller tangenttryckningar:</p>
+        <pre>
+            <code>
+document.getElementById("minKnapp").addEventListener("click", function() {
+    alert("Knappen klickades!");
+});
+            </code>
+        </pre>
+    </section>
+
+    <!-- DOM-manipulation -->
+    <section>
+        <h1>DOM-manipulation</h1>
+        <p>Document Object Model (DOM) representerar strukturen av en webbsida. Med JavaScript kan du manipulera DOM för att ändra innehåll och struktur dynamiskt:</p>
+        <pre>
+            <code>
+const rubrik = document.createElement("h1");
+rubrik.textContent = "Dynamisk Rubrik";
+document.body.appendChild(rubrik);
+            </code>
+        </pre>
+    </section>
 
     <footer>
         <ul id="bottom">
             <li class="contact">
-                <p>Contact Us</p>
+                <p>Kontakta Oss</p>
                 <p class="footer-text">contact@carne.com</p>
             </li>
             <li class="contact" id="socials-footer">
-                 <p>Socials</p>
+                 <p>Sociala Medier</p>
                  <div id="socials-icons">
-                    <img src="img/instagram.svg" alt=""  class="socials-svg">
-                    <img src="img/linkdin.svg" alt=""  class="socials-svg">
-                    <img src="img/tumblr.svg" alt=""  class="socials-svg">
-                    
-                </div>
+                    <img src="img/instagram.svg" alt="" class="socials-svg">
+                    <img src="img/linkdin.svg" alt="" class="socials-svg">
+                    <img src="img/tumblr.svg" alt="" class="socials-svg">
+                 </div>
             </li>
             <li class="contact">
                 <p>Disclaimer</p>
-                <p class="footer-text"> &copy; This page is available under the Creative Commons Attribution-ShareAlike License Terms of Use Privacy Policy </p>
+                <p class="footer-text">
+                    &copy; Denna sida är tillgänglig under Creative Commons Attribution-ShareAlike License Villkor för användning Sekretesspolicy
+                </p>
             </li>
         </ul>
     </footer>
