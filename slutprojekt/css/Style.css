@@ -57,11 +57,15 @@ section {
 
 .works {
     min-width: 10vh;
-    background-color: #272625;
+    background-color: #ececec;
     border-radius: 3vh;
     padding: 1vh;
     margin: 0 0.5rem;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.works img {
+    width: 150px;
 }
 
 .works:nth-child(2) {
@@ -153,8 +157,7 @@ footer {
     align-items: center; 
     padding: 1em;
     text-decoration: none;
-    color: #000000;
-    border: 1px solid black;
+    border: 1px solid black !important;
     width: 100%; 
     height: 100%; 
     box-sizing: border-box;
@@ -189,19 +192,24 @@ footer {
     color: #0087ca !important;
 }
 
-.nav-html {
+.nav-html li a{
     background-color: #ffa500 !important;
+    color: black;
 }
 
-.nav-css {
+.nav-css li a {
     background-color: #0000ff !important;
     color: #ffffff !important;
 }
 
-.nav-js {
+.nav-js li a{
     background-color: #ffde21 !important;
+    color: black;
 }
 
+.nav-index li a {
+    color: white;
+}
 /* Products */
 
 #product-container {
