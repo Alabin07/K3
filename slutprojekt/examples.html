@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDev Fundamentals</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js" src="js/app.js"></script>
+    <link rel="stylesheet" href="css/Style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">WebDev<span style="color: var(--primary);">Fundamentals</span></a>
+        <div class="menu-toggle">☰</div>
+        <nav>
+            <ul id="navLinks">
+                <li><a href="index.html"  data-page="home">Home</a></li>
+                <li><a href="html.html" data-page="html">HTML</a></li>
+                <li><a href="css.html" data-page="css">CSS</a></li>
+                <li><a href="js.html" data-page="javascript">JavaScript</a></li>
+                <li><a href="examples.html" class="active">Examples</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="boids-container">
+        
+    </div>
+    <div id="content">
+        <h1>WebDev Example</h1>
+        <p>Här är några exempel på saker du kan göra med webbutveckling</p>
+    </div>
+    
+    <script>        
+        // Boids simulation
+        let boids = [];
+        let eagles = [];
+        
+        // Simulation parameters - simplified for background use
+        const boidFearStrength = 0.5;
+        const boidAlignSpeed = 0.01;
+        const boidCohesionStrength = 0.01;
+        const boidAvoidanceStrength = 0.2;
+        const eagleHuntStrength = 0.08;
+        const eagleAvoidStrength = 0.15;
+        
+        // Create p5.js instance in instance mode for better DOM integration
+        const boidsSketch = new p5(function(p) {
+            p.setup = function() {
+                const container = document.getElementById('boids-container');
+                const canvas = p.createCanvas(container.offsetWidth, container.offsetHeight);
+                canvas.parent('boids-container');
+                
+                // Initialize simulation with fewer elements for performance
+                const numBoids = Math.min(window.innerWidth / 10, 80); // Responsive number of boids
+                const numEagles = 2;
+                
+                for (let i = 0; i < numBoids; i++) {
+                    boids.push(new Boid(p.random(p.width), p.random(p.height)));
+                }
+                
+                for (let i = 0; i < numEagles; i++) {
+                    eagles.push(new Eagle(p.random(p.width), p.random(p.height)));
+                }
+            };
+            
+            p.draw = function() {
+                p.background(240, 240, 255, 220); // Slightly transparent background
+                
+                // Update and draw all boids and eagles
+                for (let b of boids) {
+                    b.update(boids, eagles);
+                }
+                
+                for (let e of eagles) {
+                    e.update(boids, eagles);
+                }
+                
+                for (let b of boids) {
+                    b.draw();
+                }
+                
+                for (let e of eagles) {
+                    e.draw();
+                }
+            };
+            
+            p.windowResized = function() {
+                const container = document.getElementById('boids-container');
+                p.resizeCanvas(container.offsetWidth, container.offsetHeight);
+            };
+            
+            // Boid class
+            class Boid {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.vx = p.random(-1, 1);
+                    this.vy = p.random(-1, 1);
+                    this.MAX_SPEED = 1.5; // Slower for background
+                    this.ALIGN_RADIUS = 50;
+                    this.AVOIDANCE_RADIUS = 10;
+                    this.FEAR_RADIUS = 40;
+                }
+                
+                Fear(eagles) {
+                    let count = 0;
+                    let coX = 0, coY = 0;
+                    for (let e of eagles) {
+                        let d = p.dist(this.x, this.y, e.x, e.y);
+                        if (d < this.FEAR_RADIUS) {
+                            coX += e.x;
+                            coY += e.y;
+                            count++;
+                        }
+                    }
+                    if (count > 0) {
+                        coX /= count;
+                        coY /= count;
+                        if (coX < this.x) {
+                            this.vx += boidFearStrength;
+                        } else if (coX > this.x) {
+                            this.vx -= boidFearStrength;
+                        }
+                        if (coY < this.y) {
+                            this.vy += boidFearStrength;
+                        } else if (coY > this.y) {
+                            this.vy -= boidFearStrength;
+                        }
+                    }
+                }
+                
+                Alignment(boids) {
+                    let count = 0;
+                    let alignX = 0, alignY = 0;
+                    for (let other of boids) {
+                        let d = p.dist(this.x, this.y, other.x, other.y);
+                        if (other !== this && d < this.ALIGN_RADIUS) {
+                            alignX += other.vx;
+                            alignY += other.vy;
+                            count++;
+                        }
+                    }
+                    if (count > 0) {
+                        this.vx += (alignX / count) * boidAlignSpeed;
+                        this.vy += (alignY / count) * boidAlignSpeed;
+                    }
+                }
+                
+                Separation(boids) {
+                    let count = 0;
+                    let coX = 0, coY = 0;
+                    for (let other of boids) {
+                        let d = p.dist(this.x, this.y, other.x, other.y);
+                        if (other !== this && d < this.AVOIDANCE_RADIUS) {
+                            coX += other.x;
+                            coY += other.y;
+                            count++;
+                        }
+                    }
+                    if (count > 0) {
+                        coX /= count;
+                        coY /= count;
+                        if (coX < this.x) {
+                            this.vx += boidAvoidanceStrength;
+                        } else if (coX > this.x) {
+                            this.vx -= boidAvoidanceStrength;
+                        }
+                        if (coY < this.y) {
+                            this.vy += boidAvoidanceStrength;
+                        } else if (coY > this.y) {
+                            this.vy -= boidAvoidanceStrength;
+                        }
+                    }
+                }
+                
+                Cohesion(boids) {
+                    let count = 0;
+                    let coX = 0, coY = 0;
+                    for (let other of boids) {
+                        let d = p.dist(this.x, this.y, other.x, other.y);
+                        if (other !== this && d < this.ALIGN_RADIUS && d > this.AVOIDANCE_RADIUS) {
+                            coX += other.x;
+                            coY += other.y;
+                            count++;
+                        }
+                    }
+                    if (count > 0) {
+                        coX /= count;
+                        coY /= count;
+                        if (coX < this.x) {
+                            this.vx -= boidCohesionStrength;
+                        } else if (coX > this.x) {
+                            this.vx += boidCohesionStrength;
+                        }
+                        if (coY < this.y) {
+                            this.vy -= boidCohesionStrength;
+                        } else if (coY > this.y) {
+                            this.vy += boidCohesionStrength;
+                        }
+                    }
+                }
+                
+                update(boids, eagles) {
+                    this.Alignment(boids);
+                    this.Cohesion(boids);
+                    this.Separation(boids);
+                    this.Fear(eagles);
+                    
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.limitSpeed();
+                    
+                    if (this.x < 0) this.x = p.width;
+                    if (this.x > p.width) this.x = 0;
+                    if (this.y < 0) this.y = p.height;
+                    if (this.y > p.height) this.y = 0;
+                }
+                
+                limitSpeed() {
+                    let speed = p.sqrt(this.vx * this.vx + this.vy * this.vy);
+                    if (speed > this.MAX_SPEED) {
+                        this.vx = (this.vx / speed) * this.MAX_SPEED;
+                        this.vy = (this.vy / speed) * this.MAX_SPEED;
+                    }
+                }
+                
+                draw() {
+                    p.fill(65, 105, 225, 180); 
+                    p.noStroke();
+                    p.ellipse(this.x, this.y, 8, 8);
+                }
+            }
+            
+            
+            class Eagle {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.vx = p.random(-1, 1);
+                    this.vy = p.random(-1, 1);
+                    this.HUNT_RADIUS = 150;
+                    this.AVOID_RADIUS = 130;
+                    this.MAX_SPEED = 3;
+                }
+                
+                Hunt(boids) {
+                    let count = 0;
+                    let coX = 0, coY = 0;
+                    for (let b of boids) {
+                        let d = p.dist(this.x, this.y, b.x, b.y);
+                        if (d < this.HUNT_RADIUS) {
+                            coX += b.x;
+                            coY += b.y;
+                            count++;
+                        }
+                    }
+                    if (count > 0) {
+                        coX /= count;
+                        coY /= count;
+                        if (coX < this.x) {
+                            this.vx -= eagleHuntStrength;
+                        } else if (coX > this.x) {
+                            this.vx += eagleHuntStrength;
+                        }
+                        if (coY < this.y) {
+                            this.vy -= eagleHuntStrength;
+                        } else if (coY > this.y) {
+                            this.vy += eagleHuntStrength;
+                        }
+                    }
+                }
+                
+                Avoid(eagles) {
+                    let count = 0;
+                    let coX = 0, coY = 0;
+                    for (let other of eagles) {
+                        let d = p.dist(this.x, this.y, other.x, other.y);
+                        if (other !== this && d < this.AVOID_RADIUS) {
+                            coX += other.x;
+                            coY += other.y;
+                            count++;
+                        }
+                    }
+                    if (count > 0) {
+                        coX /= count;
+                        coY /= count;
+                        if (coX < this.x) {
+                            this.vx += eagleAvoidStrength;
+                        } else if (coX > this.x) {
+                            this.vx -= eagleAvoidStrength;
+                        }
+                        if (coY < this.y) {
+                            this.vy += eagleAvoidStrength;
+                        } else if (coY > this.y) {
+                            this.vy -= eagleAvoidStrength;
+                        }
+                    }
+                }
+                
+                update(boids, eagles) {
+                    this.Hunt(boids);
+                    this.Avoid(eagles);
+                    
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.limitSpeed();
+                    
+                    if (this.x < 0) this.x = p.width;
+                    if (this.x > p.width) this.x = 0;
+                    if (this.y < 0) this.y = p.height;
+                    if (this.y > p.height) this.y = 0;
+                }
+                
+                limitSpeed() {
+                    let speed = p.sqrt(this.vx * this.vx + this.vy * this.vy);
+                    if (speed > this.MAX_SPEED) {
+                        this.vx = (this.vx / speed) * this.MAX_SPEED;
+                        this.vy = (this.vy / speed) * this.MAX_SPEED;
+                    }
+                }
+                
+                draw() {
+                    p.fill(220, 20, 60, 200); // Crimson with transparency
+                    p.noStroke();
+                    p.ellipse(this.x, this.y, 16, 16);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
