@@ -298,7 +298,36 @@ pre code {
     #navLinks li {
         margin: 0.5rem 0;
     }
+
+    footer {
+        height: auto;
+    }
+    
+    #bottom {
+        flex-direction: column; 
+        height: auto;
+    }
+    
+    #bottom li {
+        border-right: none; 
+        border-bottom: var(--primary) solid 1px;
+        padding: 15px 0; 
+    }
+    
+    #bottom li:last-child {
+        border-bottom: none; 
+    }
+    
+    .socials-svg {
+        width: 30px; 
+    }
+    
+    #socials-icons {
+        gap: 20px;
+    }
 }
+
+
 
 #product-container, .works-all {
     flex-wrap: wrap;
