@@ -13,6 +13,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenELements = document.querySelectorAll(".hidden");
 hiddenELements.forEach((el) => observer.observe(el));
+
 document.querySelector('.menu-toggle').addEventListener('click', function() {
     document.querySelector('nav').classList.toggle('active');
 });
