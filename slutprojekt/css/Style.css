@@ -247,6 +247,10 @@ pre code {
     white-space: pre-wrap;
 }
 
+section {
+    padding:  10px;
+}
+
 /* Boids simulation section */
 #boids-container {
     position: relative;
@@ -325,6 +329,7 @@ pre code {
     #socials-icons {
         gap: 20px;
     }
+
 }
 
 
@@ -340,9 +345,11 @@ pre code {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .color-explanation a {
+    margin-top: 40px;
     background-color: var(--primary);
     color: var(--light);
     text-align: center;
