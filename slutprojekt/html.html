@@ -8,6 +8,12 @@
     <script defer src="js/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Prism Core and a VS Code–like theme -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
 
 </head>
 <body>
@@ -40,7 +46,7 @@
     <!-- Standardmall för en HTML-sida -->
     <section class="hidden">
         <h1>Start på HTML är alltid:</h1>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
@@ -82,7 +88,7 @@
     <section class="hidden">
         <h1>Rubriker och Paragrafer</h1>
         <p>Rubriker används för att skapa en hierarki i innehållet och paragrafer används för att strukturera text.</p>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;h1&gt;Detta är en rubrik&lt;/h1&gt;
 &lt;p&gt;Detta är en paragraf med lite text.&lt;/p&gt;
@@ -94,7 +100,7 @@
     <section class="hidden">
         <h1>Länkar</h1>
         <p>Skapa en länk med &lt;a&gt;-taggen:</p>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;a href="https://www.example.com"&gt;Besök Example.com&lt;/a&gt;
             </code>
@@ -105,7 +111,7 @@
     <section class="hidden">
         <h1>Bilder</h1>
         <p>Använd &lt;img&gt;-taggen för att visa bilder. Glöm inte att ange en alt-text för tillgänglighet:</p>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;img src="bild.jpg" alt="Beskrivning av bilden"&gt;
             </code>
@@ -117,7 +123,7 @@
         <h1>Listor</h1>
         <p>Oordnade listor skapas med &lt;ul&gt; och ordnade listor med &lt;ol&gt;.</p>
         <p>Exempel på oordnad lista:</p>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;ul&gt;
   &lt;li&gt;Första punkten&lt;/li&gt;
@@ -127,7 +133,7 @@
             </code>
         </pre>
         <p>Exempel på ordnad lista:</p>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;ol&gt;
   &lt;li&gt;Första punkten&lt;/li&gt;
@@ -142,7 +148,7 @@
     <section class="hidden">
         <h1>Tabeller</h1>
         <p>Tabeller används för att visa data i rader och kolumner.</p>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;table border="1"&gt;
   &lt;tr&gt;
@@ -162,7 +168,7 @@
     <section class="hidden">
         <h1>Formulär</h1>
         <p>Skapa formulär med &lt;form&gt;-taggen för att samla in användardata:</p>
-        <pre>
+        <pre class="language-html">
             <code>
 &lt;form action="submit.html" method="post"&gt;
   &lt;label for="name"&gt;Namn:&lt;/label&gt;

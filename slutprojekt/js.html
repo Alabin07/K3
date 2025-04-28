@@ -6,6 +6,15 @@
     <title>JavaScript Guide</title>
     <link rel="stylesheet" href="css/Style.css">
     <script defer src="js/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Prism Core and a VS Code–like theme -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -44,7 +53,7 @@
             <li><code>Array</code>: Listor av värden</li>
         </ul>
         <p>Exempel på deklaration och tilldelning:</p>
-        <pre>
+        <pre class="language-js">
             <code>
 let tal = 5;
 const namn = "Anna";
@@ -57,7 +66,7 @@ var ärAktiv = true;
     <section>
         <h1>Funktioner</h1>
         <p>Funktioner är block av kod som kan återanvändas. De definieras med <code>function</code>-nyckelordet:</p>
-        <pre>
+        <pre class="language-js">
             <code>
 function hälsa() {
     console.log("Hej världen!");
@@ -65,7 +74,7 @@ function hälsa() {
             </code>
         </pre>
         <p>Du kan också skapa anonyma funktioner och peka dem till variabler:</p>
-        <pre>
+        <pre class="language-js">
             <code>
 const kvadrat = function(x) {
     return x * x;
@@ -78,7 +87,7 @@ const kvadrat = function(x) {
     <section>
         <h1>Kontrollstrukturer</h1>
         <p>JavaScript stöder vanliga kontrollstrukturer som <code>if</code>-satser och loopar:</p>
-        <pre>
+        <pre class="language-js">
             <code>
 if (tal > 10) {
     console.log("Talet är större än 10");
@@ -97,7 +106,7 @@ for (let i = 0; i < 5; i++) {
     <section>
         <h1>Händelsehantering</h1>
         <p>JavaScript används ofta för att hantera händelser på webbsidor, såsom klick eller tangenttryckningar:</p>
-        <pre>
+        <pre class="language-js">
             <code>
 document.getElementById("minKnapp").addEventListener("click", function() {
     alert("Knappen klickades!");
@@ -110,7 +119,7 @@ document.getElementById("minKnapp").addEventListener("click", function() {
     <section>
         <h1>DOM-manipulation</h1>
         <p>Document Object Model (DOM) representerar strukturen av en webbsida. Med JavaScript kan du manipulera DOM för att ändra innehåll och struktur dynamiskt:</p>
-        <pre>
+        <pre class="language-js">
             <code>
 const rubrik = document.createElement("h1");
 rubrik.textContent = "Dynamisk Rubrik";

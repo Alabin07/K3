@@ -6,6 +6,15 @@
     <title>CSS Guide</title>
     <link rel="stylesheet" href="css/Style.css">
     <script defer src="js/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Prism Core and a VS Code–like theme -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -36,7 +45,7 @@
     <section class="hidden">
         <h1>Grundläggande Syntax</h1>
         <p>En CSS-regel består av en selektor och ett deklarationsblock. Deklarationsblocket innehåller ett eller flera par med egenskaper och värden, avslutade med semikolon.</p>
-        <pre>
+        <pre class="language-css">
             <code>
 selector {
     egenskap: värde;
@@ -44,7 +53,7 @@ selector {
             </code>
         </pre>
         <p>Exempel:</p>
-        <pre>
+        <pre class="language-css">
             <code>
 h1 {
     color: blue;
@@ -64,7 +73,7 @@ h1 {
             <li><strong>Inline CSS:</strong> Använd style-attributet direkt på ett HTML-element.</li>
         </ul>
         <p>Exempel på intern CSS:</p>
-        <pre>
+        <pre class="language-css">
             <code>
 &lt;style&gt;
   p {
@@ -85,7 +94,7 @@ h1 {
             <li><strong>ID-selektor:</strong> Väljer element med ett specifikt ID. Exempel: <code>#huvud</code></li>
         </ul>
         <p>Exempel:</p>
-        <pre>
+        <pre class="language-css">
             <code>
 .important {
     font-weight: bold;
@@ -108,7 +117,7 @@ h1 {
             <li>Margin (marginal)</li>
         </ul>
         <p>Exempel:</p>
-        <pre>
+        <pre class="language-css">
             <code>
 div {
     margin: 20px;
@@ -160,7 +169,7 @@ div {
     <section class="hidden">
         <h1>Kommentarer i CSS</h1>
         <p>Kommentarer kan användas för att förklara koden och ignoreras av webbläsaren.</p>
-        <pre>
+        <pre class="language-css">
             <code>
 /* Detta är en kommentar i CSS */
 p {
