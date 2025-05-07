@@ -13,6 +13,13 @@
     --light: #f8f8f8;
 }
 
+[data-theme="dark"]
+{
+    --primary: #0077cc;
+    --dark: #f8f8f8;
+    --light: #333;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -26,17 +33,18 @@ html, body {
 }
 
 body {
-    background-color: whitesmoke;
-    color: #333;
+    background-color: var(--light);
+    color: var(--dark);
     padding: 0;
     margin: 0;  
     display: flex;
     flex-direction: column;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
-    color: #333;
+    color: var(--dark);
 }
 
 /* scroll effect */
@@ -45,6 +53,20 @@ section {
     place-items: center;
     align-content: center;
     min-height: 100vh;
+    margin: 0, 10px, 0, 10px;
+}
+
+#theme-toggle {
+    color: var(--dark);
+    background-color: var(--light);
+    border: var(--dark) solid 0px;
+    border-radius: 5px;
+    transition: color 0.3s;
+}
+
+#theme-toggle:hover {
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 .hidden {
@@ -66,7 +88,7 @@ section {
 
 .works {
     min-width: 10vh;
-    background-color: #ececec;
+    background-color: var(--light);
     border-radius: 3vh;
     padding: 1vh;
     margin: 0 0.5rem;
@@ -150,7 +172,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--light);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -205,7 +227,7 @@ header {
     padding: 10vh;
     text-align: center;
     box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
-    background-color: #313030;
+    background-color: var(--dark);
 }
 
 /* Form */
@@ -234,12 +256,16 @@ form {
 
 /* Code snippet */
 pre {
-    background-color: #ececec;
-    color: black;
+    background-color: var(--light);
+    color: var(--dark);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     font-size: larger;
     padding: 20px;
     font-family: jetBrainsMono;
+    overflow-x: auto;
+    white-space: pre;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 pre code {
@@ -363,5 +389,10 @@ section {
     text-decoration: none;
 }
 .color-explanation a:hover {
-    background-color: #0077ccda;
+    background-color: var(--primary);
+}
+
+
+img {
+    max-width: 100%;
 }
