@@ -311,7 +311,7 @@ section {
         top: 100%;
         left: 0;
         width: 100%;
-        background: white;
+        background: var(--light);
         transform: scaleY(0);
         transform-origin: top;
         transition: transform 0.3s;
