@@ -2,10 +2,6 @@
     font-family: jetBrainsMono;
     src: url(../font/JetBrainsMono-Medium.ttf);
 }
-@font-face {
-    font-family: jetBrainsMono;
-    src: url(../font/JetBrainsMono-Bold.ttf);
-}
 
 :root {
     --primary: #0077cc;
@@ -59,17 +55,22 @@ section {
 
 #theme-toggle {
     color: var(--dark);
-    background-color: var(--light);
-    border: var(--dark) solid 0px;
+    background-color: transparent;
+    border: none;
     border-radius: 5px;
     transition: color 0.3s;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
 }
 
 #theme-toggle:hover {
     color: var(--primary);
-    border-color: var(--primary);
 }
-
 .hidden {
     opacity: 0;
     filter: blur(5px);
